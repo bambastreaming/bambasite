@@ -3,10 +3,10 @@ import React from 'react';
 
 const Stats: React.FC = () => {
   const metrics = [
-    { num: "1.5K", label: "Youtube Subs", icon: "fa-play" },
-    { num: "6.9K", label: "Instagram", icon: "fa-camera" },
-    { num: "3.5M", label: "Total Views", icon: "fa-eye" },
-    { num: "560K", label: "Engagement", icon: "fa-heart" }
+    { num: "1.8K", label: "Youtube Subs", icon: "fa-play" },
+    { num: "9.4K", label: "Instagram", icon: "fa-camera" },
+    { num: "7M", label: "Total Views", icon: "fa-eye" },
+    { num: "1M", label: "Engagement", icon: "fa-heart" }
   ];
 
   return (
