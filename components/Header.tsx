@@ -14,12 +14,12 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Sobre Bamba', id: 'sobre-nosotros' },
-    { name: 'Cómo Ver', id: 'como-ver' },
     { name: 'Programas', id: 'programas' },
     { name: 'Impacto', id: 'impacto' },
     { name: 'Equipo', id: 'equipo' },
+    { name: 'Cómo Ver', id: 'como-ver' },
     { name: 'Tribuna', id: 'tribuna' },
+    { name: 'Sobre Bamba', id: 'sobre-nosotros' },
   ];
 
   const handleScrollTo = (e: React.MouseEvent, id: string) => {

@@ -33,24 +33,9 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Sobre Nosotros - White background with yellow accents */}
-        <section id="sobre-nosotros" className="py-12 sm:py-20 md:py-32 bg-white" aria-labelledby="sobre-nosotros-heading">
-          <About />
-        </section>
-
-        {/* Cómo Ver Bamba - Instructions */}
-        <section id="como-ver" className="py-12 sm:py-20 md:py-32 bg-bamba-yellow/10 border-y-2 border-black/10" aria-labelledby="como-ver-heading">
-          <HowToWatch />
-        </section>
-
         {/* Programas & Clips Virales */}
         <section id="programas" className="py-12 sm:py-20 md:py-32 bg-white border-b-2 border-black/10" aria-labelledby="programas-heading">
           <Episodes />
-        </section>
-
-        {/* Sponsors Section - New */}
-        <section id="sponsors" className="py-12 sm:py-16 md:py-24 bg-white border-y border-black/5" aria-labelledby="sponsors-heading">
-          <Sponsors />
         </section>
 
         {/* Impacto - Vibrant Yellow Section */}
@@ -58,14 +43,29 @@ const App: React.FC = () => {
           <Stats />
         </section>
 
-        {/* Equipo - Off White / Light Gray with Blue Accents */}
-        <section id="equipo" className="py-12 sm:py-20 md:py-32 bg-[#f8f9fa]" aria-labelledby="equipo-heading">
+        {/* Equipo - Quiénes estamos en la mesa */}
+        <section id="equipo" className="py-12 sm:py-20 md:py-32 bg-[#f8f9fa] border-b-2 border-black/10" aria-labelledby="equipo-heading">
           <Team />
+        </section>
+
+        {/* Cómo Ver / Canales - YouTube vs Spotify */}
+        <section id="como-ver" className="py-12 sm:py-20 md:py-32 bg-bamba-yellow/10 border-b-2 border-black/10" aria-labelledby="como-ver-heading">
+          <HowToWatch />
         </section>
 
         {/* La Tribuna - Solid Deep Blue */}
         <section id="tribuna" className="bg-bamba-blue py-12 sm:py-20 md:py-32 text-white border-y-3 sm:border-y-4 border-black" aria-labelledby="tribuna-heading">
           <CTASection />
+        </section>
+
+        {/* Sobre Nosotros - Manifiesto */}
+        <section id="sobre-nosotros" className="py-12 sm:py-20 md:py-32 bg-white" aria-labelledby="sobre-nosotros-heading">
+          <About />
+        </section>
+
+        {/* Sponsors Section */}
+        <section id="sponsors" className="py-12 sm:py-16 md:py-24 bg-white border-y border-black/5" aria-labelledby="sponsors-heading">
+          <Sponsors />
         </section>
 
         {/* Contacto - High Energy Yellow */}

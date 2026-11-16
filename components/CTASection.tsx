@@ -6,21 +6,24 @@ const CTASection: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
         <div className="reveal">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl font-black-bamba mb-6 sm:mb-8 leading-[0.85] sm:leading-[0.8] md:leading-[0.75] uppercase italic tracking-tighter">
+          <span className="text-bamba-yellow font-black tracking-[0.3em] sm:tracking-[0.4em] text-[10px] sm:text-xs uppercase mb-3 sm:mb-4 block">
+            EXPERIENCIA PRESENCIAL
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black-bamba mb-6 sm:mb-8 leading-[0.85] sm:leading-[0.8] md:leading-[0.75] uppercase italic tracking-tighter">
             <span className="block">VENÍ A LA</span>
             <span className="block text-bamba-yellow">TRIBUNA</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 md:mb-12 text-white/70 max-w-xl">
-            Viví Bamba desde adentro. Sé parte del set, participá en vivo y conocé a todo el equipo. 
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 md:mb-10 text-white/80 max-w-xl leading-snug">
+            Viví Bamba desde adentro del estudio. Sé parte del set, tirá la tuya en directo y compartí el streaming con nosotros.
           </p>
           <a 
             href="https://tally.so/r/wAVkGD" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="brutal-shadow inline-block bg-bamba-yellow text-black px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 font-black uppercase tracking-tighter text-base sm:text-lg md:text-xl lg:text-2xl border-2 border-black hover:bg-white transition-all focus:outline-none focus:ring-2 focus:ring-white rounded-lg w-full sm:w-auto text-center"
+            className="brutal-shadow inline-block bg-bamba-yellow text-black px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 font-black-bamba uppercase tracking-tighter text-base sm:text-lg md:text-xl lg:text-2xl border-3 border-black hover:bg-white transition-all focus:outline-none focus:ring-2 focus:ring-white rounded-none w-full sm:w-auto text-center"
             aria-label="Reservar lugar en La Tribuna de Bamba Streaming"
           >
-            RESERVAR LUGAR
+            RESERVAR MI LUGAR
           </a>
         </div>
         
