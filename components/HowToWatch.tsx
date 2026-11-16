@@ -11,13 +11,13 @@ const HowToWatch: React.FC = () => {
           EN VIVO O EN <span className="text-bamba-yellow">TU BOLSILLO</span>
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mx-auto leading-snug">
-          Los martes en directo por YouTube con chat abierto y tribuna, o todos los días on-demand en Spotify.
+          Los martes en directo o cuando quieras on-demand: mirá las emisiones completas y clips en YouTube, o escuchanos en Spotify.
         </p>
       </div>
 
-      {/* Plataformas: YouTube (En Vivo) vs Spotify (Audio) */}
+      {/* Plataformas: YouTube (En Vivo & On-Demand) vs Spotify (Audio) */}
       <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-        {/* Card YouTube / En Vivo */}
+        {/* Card YouTube / En Vivo & On-Demand */}
         <div className="reveal brutal-shadow bg-black text-white border-3 border-black p-6 sm:p-8 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
@@ -26,17 +26,17 @@ const HowToWatch: React.FC = () => {
                   <i className="fab fa-youtube"></i>
                 </div>
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-bamba-yellow block">TRANSMISIÓN EN VIVO</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-bamba-yellow block">EN VIVO & ON-DEMAND</span>
                   <h3 className="font-black-bamba text-xl sm:text-2xl uppercase tracking-tight">Canal de YouTube</h3>
                 </div>
               </div>
               <span className="px-2.5 py-1 bg-white/10 text-white/80 rounded-full text-[9px] font-black uppercase tracking-wider hidden sm:inline-block">
-                EN VIVO
+                VIVO + VIDEOS
               </span>
             </div>
 
             <p className="text-sm font-bold text-gray-300 mb-6 leading-relaxed">
-              Sintonizá todos los martes a las 20:30 hs (ARG) con el chat abierto, debates sin filtro y la tribuna en directo.
+              En vivo los martes 20:30 hs (ARG) con chat y tribuna abierta, y todos los programas completos, clips virales y entrevistas disponibles on-demand 24/7.
             </p>
 
             {/* Horarios Internacionales */}
