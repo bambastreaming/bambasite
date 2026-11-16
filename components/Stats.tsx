@@ -55,6 +55,7 @@ const Stats: React.FC = () => {
     { target: 1.8, decimals: 1, suffix: "K", label: "Youtube Subs", icon: "fa-play" },
     { target: 9.4, decimals: 1, suffix: "K", label: "Instagram", icon: "fa-camera" },
     { target: 7, decimals: 0, suffix: "M", label: "Total Views", icon: "fa-eye" },
+    { target: 3, decimals: 0, suffix: "M", label: "Cuentas Alcanzadas", icon: "fa-chart-line" },
     { target: 1, decimals: 0, suffix: "M", label: "Engagement", icon: "fa-heart" }
   ];
 
@@ -75,9 +76,9 @@ const Stats: React.FC = () => {
 
   return (
     <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
         {metrics.map((stat, i) => (
-          <div key={i} className="stat-card reveal bg-black p-6 sm:p-8 md:p-10 border-b-6 sm:border-b-8 border-white transition-all hover:border-bamba-blue group min-w-0 overflow-hidden" style={{ transitionDelay: `${i * 100}ms` }}>
+          <div key={i} className="stat-card reveal bg-black p-5 sm:p-6 lg:p-7 border-b-6 sm:border-b-8 border-white transition-all hover:border-bamba-blue group min-w-0 overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
             <div className="flex justify-between items-start mb-4 sm:mb-6">
               <div className="text-white/20 text-2xl sm:text-3xl group-hover:text-bamba-yellow transition-colors">
                 <i className={`fas ${stat.icon}`}></i>
@@ -92,7 +93,7 @@ const Stats: React.FC = () => {
                 animate={hasAnimated}
               />
             </div>
-            <div className="text-[10px] sm:text-[11px] md:text-[12px] font-black text-bamba-yellow uppercase tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em]">
+            <div className="text-[9px] sm:text-[10px] md:text-[11px] font-black text-bamba-yellow uppercase tracking-[0.2em] sm:tracking-[0.25em]">
               {stat.label}
             </div>
           </div>
