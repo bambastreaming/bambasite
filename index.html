@@ -13,21 +13,69 @@
     <meta name="author" content="Bamba Streaming">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
+    <link rel="canonical" href="https://bambastreaming.com/">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bamba Streaming">
     <meta property="og:url" content="https://bambastreaming.com/">
-    <meta property="og:title" content="Bamba Streaming - El primer streaming judío">
-    <meta property="og:description" content="Judaísmo real sin filtros. Todos los martes a las 20:30 hs (ARG).">
+    <meta property="og:title" content="Bamba Streaming - El primer streaming judío | Judaísmo Real Sin Filtros">
+    <meta property="og:description" content="Judaísmo real sin filtros. Debates, entrevistas y contenido auténtico. Todos los martes a las 20:30 hs (ARG) en vivo por YouTube y on-demand en Spotify.">
     <meta property="og:image" content="https://bambastreaming.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_AR">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bambastreaming.com/">
     <meta property="twitter:title" content="Bamba Streaming - El primer streaming judío">
-    <meta property="twitter:description" content="Judaísmo real sin filtros. Todos los martes a las 20:30 hs (ARG).">
+    <meta property="twitter:description" content="Judaísmo real sin filtros. Todos los martes a las 20:30 hs (ARG) en vivo por YouTube.">
     <meta property="twitter:image" content="https://bambastreaming.com/og-image.jpg">
+
+    <!-- Schema.org JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://bambastreaming.com/#website",
+          "url": "https://bambastreaming.com/",
+          "name": "Bamba Streaming",
+          "description": "El primer programa de streaming judío en español sin filtros",
+          "inLanguage": "es"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://bambastreaming.com/#organization",
+          "name": "Bamba Streaming",
+          "url": "https://bambastreaming.com/",
+          "logo": "https://bambastreaming.com/images/bamba-logo.png",
+          "sameAs": [
+            "https://www.youtube.com/@BambaStreaming",
+            "https://www.instagram.com/bambastreaming/",
+            "https://www.tiktok.com/@bambastreaming",
+            "https://open.spotify.com/show/6vHFrfEwlCA1kIbUUdk9FI"
+          ]
+        },
+        {
+          "@type": "BroadcastEvent",
+          "name": "Bamba Streaming en Vivo",
+          "description": "Transmisión en directo semanal todos los martes a las 20:30 hs (ARG)",
+          "isLiveBroadcast": true,
+          "video": {
+            "@type": "VideoObject",
+            "name": "Bamba Streaming en YouTube",
+            "description": "Emisión en vivo y clips de Bamba Streaming",
+            "thumbnailUrl": "https://bambastreaming.com/og-image.jpg",
+            "uploadDate": "2026-01-01T20:30:00-03:00",
+            "embedUrl": "https://www.youtube.com/@BambaStreaming"
+          }
+        }
+      ]
+    }
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/bamba-logo.png">
