@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 interface VideoItem {
   id: string;
@@ -6,57 +6,92 @@ interface VideoItem {
   tag: string;
   duration: string;
   type: 'full' | 'clip';
-  views?: string;
+  viewsCount: number;
+  viewsDisplay: string;
 }
 
+// Lista ordenada por cantidad de reproducciones (de mayor a menor)
 const featuredVideos: VideoItem[] = [
+  {
+    id: "BhEXMmgQyIc",
+    title: "IAIR HORN, 498 DÍAS SECUESTRADO EN GAZA | TESTIMONIO EXCLUSIVO",
+    tag: "PROGRAMA COMPLETO",
+    duration: "58:58",
+    type: "full",
+    viewsCount: 6351,
+    viewsDisplay: "6.4K vistas"
+  },
+  {
+    id: "pV6pAluA6J0",
+    title: "¿CUÁNTOS HIJOS QUERÉS TENER? | FAMILIA, VALORES Y PROYECTO",
+    tag: "CLIP VIRAL",
+    duration: "0:26",
+    type: "clip",
+    viewsCount: 6173,
+    viewsDisplay: "6.2K vistas"
+  },
+  {
+    id: "fWSjCFnAh2w",
+    title: "¿VIVIR CON TORÁ O NO? | DEBATE SIN FILTRO EN LA MESA",
+    tag: "DEBATE",
+    duration: "0:23",
+    type: "clip",
+    viewsCount: 2943,
+    viewsDisplay: "2.9K vistas"
+  },
+  {
+    id: "RcPQd_yT1yo",
+    title: "ISRAEL Y LA CARNE ARGENTINA | CULTURA, KASHRUT Y COSTUMBRES",
+    tag: "CLIP VIRAL",
+    duration: "0:37",
+    type: "clip",
+    viewsCount: 2844,
+    viewsDisplay: "2.8K vistas"
+  },
+  {
+    id: "NdhWFtwi5pw",
+    title: "¿LA APARIENCIA IMPORTA? | PREJUICIOS Y REALIDAD DIGITAL",
+    tag: "DEBATE",
+    duration: "1:14",
+    type: "clip",
+    viewsCount: 2256,
+    viewsDisplay: "2.3K vistas"
+  },
+  {
+    id: "heREVYAUwCE",
+    title: "¿QUIÉN ES EL VERDADERO MESÍAS DE LOS JUDÍOS? | DEBATE TEOLÓGICO",
+    tag: "PROGRAMA COMPLETO",
+    duration: "1:00:41",
+    type: "full",
+    viewsCount: 2092,
+    viewsDisplay: "2.1K vistas"
+  },
   {
     id: "CWBXgmaWshc",
     title: "EL DEBUT DE BAMBA STREAMING | ACHO COMO ESTILO DE VIDA",
     tag: "PROGRAMA COMPLETO",
     duration: "57:14",
     type: "full",
-    views: "1.9K vistas"
+    viewsCount: 1898,
+    viewsDisplay: "1.9K vistas"
   },
   {
-    id: "g6v3g8j6kNg",
-    title: "EL NUEVO TINDER JUDÍO | INFIDELIDADES, INTIMIDAD Y CITAS",
-    tag: "DEBATE",
-    duration: "58:09",
+    id: "dkCA4BuuKPA",
+    title: "¿LA ORTODOXIA LIMITA A LA MUJER JUDÍA? | DIÁLOGO ABIERTO",
+    tag: "PROGRAMA COMPLETO",
+    duration: "59:21",
     type: "full",
-    views: "1.6K vistas"
+    viewsCount: 1705,
+    viewsDisplay: "1.7K vistas"
   },
   {
-    id: "Gn9dP42fnMw",
-    title: "PREGUNTAS SOBRE DIOS QUE INCOMODAN AL RABINO",
+    id: "O7ckhMWuZQ4",
+    title: "MAURO STENDEL EN BAMBA STREAMING | MANO A MANO EN VIVO",
     tag: "ENTREVISTA",
-    duration: "57:56",
+    duration: "1:04:26",
     type: "full",
-    views: "1.2K vistas"
-  },
-  {
-    id: "EiWxN6qELOE",
-    title: "Cuando la guerra te toca de cerca: la historia de Eisenkot",
-    tag: "CLIP DESTACADO",
-    duration: "0:22",
-    type: "clip",
-    views: "2.5K vistas"
-  },
-  {
-    id: "PDQp-YK-5DM",
-    title: "¿Qué llevás en tu Kit de Emergencia? Debate en el estudio",
-    tag: "CLIP DESTACADO",
-    duration: "0:26",
-    type: "clip",
-    views: "1.8K vistas"
-  },
-  {
-    id: "4zsfbMSzbqU",
-    title: "Árabes liderando Israel: análisis sin filtro",
-    tag: "DEBATE",
-    duration: "0:18",
-    type: "clip",
-    views: "1.5K vistas"
+    viewsCount: 1646,
+    viewsDisplay: "1.6K vistas"
   }
 ];
 
@@ -64,9 +99,13 @@ const Episodes: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'full' | 'clip'>('all');
   const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null);
 
-  const filtered = activeTab === 'all' 
-    ? featuredVideos 
-    : featuredVideos.filter(v => v.type === activeTab);
+  // Ordenados estrictamente de mayor a menor número de vistas
+  const filtered = useMemo(() => {
+    const list = activeTab === 'all' 
+      ? featuredVideos 
+      : featuredVideos.filter(v => v.type === activeTab);
+    return [...list].sort((a, b) => b.viewsCount - a.viewsCount);
+  }, [activeTab]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -74,7 +113,7 @@ const Episodes: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
         <div>
           <span className="text-bamba-blue font-black tracking-[0.3em] sm:tracking-[0.4em] text-[10px] sm:text-xs uppercase mb-3 sm:mb-4 block">
-            CONTENIDO EXCLUSIVO
+            RANKING DE AUDIENCIA • MÁS VISTOS
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black-bamba text-black leading-none uppercase italic tracking-tighter">
             PROGRAMAS & <span className="text-bamba-blue">CLIPS VIRALES</span>
@@ -82,7 +121,7 @@ const Episodes: React.FC = () => {
         </div>
 
         {/* Filtros */}
-        <div className="flex items-center gap-2 self-start md:self-auto">
+        <div className="flex items-center gap-2 self-start md:self-auto flex-wrap">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-4 py-2 text-xs font-black uppercase tracking-wider border-2 border-black transition-all ${
@@ -91,7 +130,7 @@ const Episodes: React.FC = () => {
                 : 'bg-white text-black/70 hover:bg-gray-100'
             }`}
           >
-            Todos
+            Top Todos
           </button>
           <button
             onClick={() => setActiveTab('full')}
@@ -116,13 +155,13 @@ const Episodes: React.FC = () => {
         </div>
       </div>
 
-      {/* Grid de videos */}
+      {/* Grid de videos ordenados por reproducciones */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
         {filtered.map((video, idx) => (
           <div
             key={video.id}
             className="reveal brutal-shadow bg-white border-2 border-black overflow-hidden flex flex-col group cursor-pointer"
-            style={{ transitionDelay: `${idx * 80}ms` }}
+            style={{ transitionDelay: `${idx * 60}ms` }}
             onClick={() => setSelectedVideoId(video.id)}
           >
             {/* Thumbnail con Play Button Overlay */}
@@ -138,10 +177,19 @@ const Episodes: React.FC = () => {
                   <i className="fas fa-play ml-1"></i>
                 </div>
               </div>
-              <span className="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+              
+              {/* Badge de Ranking (#1, #2, #3, ...) */}
+              <div className={`absolute top-2 left-2 px-2 py-0.5 border border-black text-[10px] font-black uppercase tracking-wider ${
+                idx === 0 ? 'bg-bamba-yellow text-black' : idx === 1 ? 'bg-white text-black' : 'bg-black text-white'
+              }`}>
+                #{idx + 1} MÁS VISTO
+              </div>
+
+              {/* Tag y Duración */}
+              <span className="absolute bottom-2 right-2 bg-black/85 text-white text-[10px] font-bold px-2 py-0.5 rounded">
                 {video.duration}
               </span>
-              <span className="absolute top-2 left-2 bg-bamba-yellow text-black text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-black">
+              <span className="absolute bottom-2 left-2 bg-bamba-blue text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 border border-black">
                 {video.tag}
               </span>
             </div>
@@ -151,10 +199,13 @@ const Episodes: React.FC = () => {
               <h3 className="font-black-bamba text-base sm:text-lg text-black uppercase tracking-tight leading-snug group-hover:text-bamba-blue transition-colors line-clamp-2 mb-3">
                 {video.title}
               </h3>
-              <div className="flex items-center justify-between text-[11px] font-bold text-gray-400 pt-3 border-t border-black/5">
-                <span>{video.views}</span>
+              <div className="flex items-center justify-between text-[11px] font-bold pt-3 border-t border-black/5">
+                <span className="inline-flex items-center gap-1.5 text-red-600 font-black">
+                  <i className="fas fa-fire"></i>
+                  {video.viewsDisplay}
+                </span>
                 <span className="text-black font-black uppercase text-[10px] tracking-wider group-hover:underline flex items-center gap-1">
-                  Ver video <i className="fas fa-arrow-right text-[9px]"></i>
+                  Ver ahora <i className="fas fa-arrow-right text-[9px]"></i>
                 </span>
               </div>
             </div>
@@ -171,7 +222,7 @@ const Episodes: React.FC = () => {
           className="brutal-shadow inline-flex items-center gap-3 bg-bamba-blue hover:bg-black text-white px-8 sm:px-12 py-4 sm:py-5 font-black uppercase tracking-tight text-base sm:text-lg border-2 border-black transition-all hover:scale-105"
         >
           <i className="fab fa-youtube text-red-500 text-2xl"></i>
-          <span>EXPLORÁ TODOS LOS PROGRAMAS EN YOUTUBE</span>
+          <span>EXPLORÁ TODOS LOS VIDEOS EN YOUTUBE</span>
         </a>
       </div>
 
