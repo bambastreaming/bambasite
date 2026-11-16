@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import HowToWatch from './components/HowToWatch';
+import Episodes from './components/Episodes';
 import Stats from './components/Stats';
 import Team from './components/Team';
 import Sponsors from './components/Sponsors';
@@ -40,6 +41,11 @@ const App: React.FC = () => {
         {/* Cómo Ver Bamba - Instructions */}
         <section id="como-ver" className="py-12 sm:py-20 md:py-32 bg-bamba-yellow/10 border-y-2 border-black/10" aria-labelledby="como-ver-heading">
           <HowToWatch />
+        </section>
+
+        {/* Programas & Clips Virales */}
+        <section id="programas" className="py-12 sm:py-20 md:py-32 bg-white border-b-2 border-black/10" aria-labelledby="programas-heading">
+          <Episodes />
         </section>
 
         {/* Sponsors Section - New */}

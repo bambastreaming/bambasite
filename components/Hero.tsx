@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useLiveStatus } from '../hooks/useLiveStatus';
 
 const Hero: React.FC = () => {
+  const { isLive, days, hours, minutes, seconds } = useLiveStatus();
+
   const socialLinks = [
     { icon: "fab fa-youtube", url: "https://www.youtube.com/@BambaStreaming", color: "hover:bg-red-600" },
     { icon: "fab fa-instagram", url: "https://www.instagram.com/bambastreaming/", color: "hover:bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600" },
@@ -36,19 +39,60 @@ const Hero: React.FC = () => {
               </h1>
             </div>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-8 sm:mb-12 text-white/90 max-w-2xl mx-auto lg:mx-0 leading-tight italic px-2 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-6 sm:mb-8 text-white/90 max-w-2xl mx-auto lg:mx-0 leading-tight italic px-2 sm:px-0">
               "Rompiendo el molde del streaming tradicional con identidad propia y sin vueltas."
             </p>
+
+            {/* Live Indicator or Next Stream Countdown */}
+            {isLive ? (
+              <div className="mb-8 p-4 bg-red-600/90 backdrop-blur-md border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] inline-flex items-center gap-3 self-center lg:self-start animate-pulse">
+                <span className="w-3.5 h-3.5 rounded-full bg-white animate-ping"></span>
+                <span className="text-white font-black-bamba tracking-wider text-sm sm:text-base uppercase">
+                  TRANSMITIENDO EN VIVO POR YOUTUBE
+                </span>
+              </div>
+            ) : (
+              <div className="mb-8 p-3 sm:p-4 bg-black/60 backdrop-blur-md border-2 border-bamba-yellow/40 rounded-xl inline-block max-w-full self-center lg:self-start shadow-xl">
+                <div className="flex items-center gap-2 mb-2 justify-center lg:justify-start">
+                  <span className="inline-block w-2 h-2 rounded-full bg-bamba-yellow animate-ping"></span>
+                  <span className="text-[10px] sm:text-xs font-black tracking-[0.2em] text-bamba-yellow uppercase">
+                    PRÓXIMO STREAM • MARTES 20:30 HS (ARG)
+                  </span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-white font-black-bamba">
+                  <div className="bg-white/10 border border-white/20 px-2.5 py-1.5 rounded-lg text-center min-w-[50px] sm:min-w-[56px]">
+                    <div className="text-lg sm:text-2xl leading-none text-bamba-yellow">{days}</div>
+                    <div className="text-[8px] tracking-wider text-white/60 uppercase mt-0.5">DÍAS</div>
+                  </div>
+                  <span className="text-bamba-yellow font-bold text-base sm:text-lg">:</span>
+                  <div className="bg-white/10 border border-white/20 px-2.5 py-1.5 rounded-lg text-center min-w-[50px] sm:min-w-[56px]">
+                    <div className="text-lg sm:text-2xl leading-none text-white">{String(hours).padStart(2, '0')}</div>
+                    <div className="text-[8px] tracking-wider text-white/60 uppercase mt-0.5">HORAS</div>
+                  </div>
+                  <span className="text-bamba-yellow font-bold text-base sm:text-lg">:</span>
+                  <div className="bg-white/10 border border-white/20 px-2.5 py-1.5 rounded-lg text-center min-w-[50px] sm:min-w-[56px]">
+                    <div className="text-lg sm:text-2xl leading-none text-white">{String(minutes).padStart(2, '0')}</div>
+                    <div className="text-[8px] tracking-wider text-white/60 uppercase mt-0.5">MIN</div>
+                  </div>
+                  <span className="text-bamba-yellow font-bold text-base sm:text-lg">:</span>
+                  <div className="bg-white/10 border border-white/20 px-2.5 py-1.5 rounded-lg text-center min-w-[50px] sm:min-w-[56px]">
+                    <div className="text-lg sm:text-2xl leading-none text-bamba-yellow">{String(seconds).padStart(2, '0')}</div>
+                    <div className="text-[8px] tracking-wider text-white/60 uppercase mt-0.5">SEG</div>
+                  </div>
+                </div>
+              </div>
+            )}
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10">
               <a 
-                href="https://www.youtube.com/@BambaStreaming" 
+                href={isLive ? "https://www.youtube.com/@BambaStreaming/live" : "https://www.youtube.com/@BambaStreaming"} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="brutal-shadow bg-white text-bamba-blue font-black-bamba px-8 sm:px-12 md:px-14 py-4 sm:py-5 md:py-6 rounded-none uppercase text-base sm:text-lg md:text-xl tracking-tighter transition-all border-3 sm:border-4 border-black hover:bg-bamba-yellow hover:text-black focus:outline-none focus:ring-2 focus:ring-bamba-yellow w-full sm:w-auto text-center"
+                className={`brutal-shadow ${isLive ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-white text-bamba-blue hover:bg-bamba-yellow hover:text-black'} font-black-bamba px-8 sm:px-12 md:px-14 py-4 sm:py-5 md:py-6 rounded-none uppercase text-base sm:text-lg md:text-xl tracking-tighter transition-all border-3 sm:border-4 border-black focus:outline-none focus:ring-2 focus:ring-bamba-yellow w-full sm:w-auto text-center flex items-center justify-center gap-3`}
                 aria-label="Unite al vivo en YouTube - Bamba Streaming"
               >
-                UNITE AL VIVO
+                {isLive && <span className="w-3 h-3 rounded-full bg-white animate-ping"></span>}
+                <span>{isLive ? 'ENTRAR AL VIVO AHORA' : 'UNITE AL VIVO'}</span>
               </a>
               
               <div className="flex flex-col items-center lg:items-start w-full sm:w-auto">

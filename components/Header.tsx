@@ -1,9 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
+import { useLiveStatus } from '../hooks/useLiveStatus';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isLive } = useLiveStatus();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -14,6 +16,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Sobre Bamba', id: 'sobre-nosotros' },
     { name: 'Cómo Ver', id: 'como-ver' },
+    { name: 'Programas', id: 'programas' },
     { name: 'Impacto', id: 'impacto' },
     { name: 'Equipo', id: 'equipo' },
     { name: 'Tribuna', id: 'tribuna' },
@@ -63,6 +66,22 @@ const Header: React.FC = () => {
                 {link.name}
               </a>
             ))}
+            {isLive ? (
+              <a 
+                href="https://www.youtube.com/@BambaStreaming/live" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-red-600 text-white px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider animate-pulse hover:bg-red-700 transition-colors shadow-lg"
+              >
+                <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                <span>EN VIVO</span>
+              </a>
+            ) : (
+              <span className={`hidden xl:inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] px-2.5 py-1 rounded-full border ${scrolled ? 'bg-black/5 text-black/70 border-black/10' : 'bg-white/10 text-white/80 border-white/15'}`}>
+                <span className="w-1.5 h-1.5 rounded-full bg-bamba-yellow"></span>
+                Martes 20:30 hs
+              </span>
+            )}
             <a 
               href="#contacto" 
               onClick={(e) => handleScrollTo(e, 'contacto')}

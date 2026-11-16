@@ -67,6 +67,78 @@ const HowToWatch: React.FC = () => {
         ))}
       </div>
 
+      {/* Horarios Internacionales */}
+      <div className="reveal bg-black text-white p-6 sm:p-8 border-3 border-black shadow-[8px_8px_0px_0px_rgba(230,172,60,1)] rounded-none mb-12 max-w-4xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 mb-6 border-b border-white/10 pb-4">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-bamba-yellow animate-ping"></span>
+            <span className="text-[11px] font-black uppercase tracking-[0.25em] text-bamba-yellow">
+              SINTONIZÁ EN VIVO TODOS LOS MARTES
+            </span>
+          </div>
+          <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest">
+            En vivo por YouTube
+          </span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
+          <div className="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-bamba-yellow transition-colors">
+            <span className="text-2xl block mb-1">🇦🇷</span>
+            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider block">Argentina</span>
+            <span className="text-base sm:text-lg font-black-bamba text-bamba-yellow">20:30 HS</span>
+          </div>
+          <div className="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-bamba-yellow transition-colors">
+            <span className="text-2xl block mb-1">🇺🇸</span>
+            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider block">Miami / NY</span>
+            <span className="text-base sm:text-lg font-black-bamba text-white">18:30 HS</span>
+          </div>
+          <div className="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-bamba-yellow transition-colors">
+            <span className="text-2xl block mb-1">🇪🇸</span>
+            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider block">España</span>
+            <span className="text-base sm:text-lg font-black-bamba text-white">00:30 HS</span>
+          </div>
+          <div className="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-bamba-yellow transition-colors">
+            <span className="text-2xl block mb-1">🇮🇱</span>
+            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider block">Israel</span>
+            <span className="text-base sm:text-lg font-black-bamba text-bamba-yellow">01:30 HS</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Spotify Podcast Embed */}
+      <div className="reveal bg-white border-2 border-black p-6 sm:p-8 max-w-4xl mx-auto mb-12 brutal-shadow">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#1DB954] text-white flex items-center justify-center text-xl">
+              <i className="fab fa-spotify"></i>
+            </div>
+            <div>
+              <h4 className="font-black-bamba text-lg text-black uppercase tracking-tight">Escuchanos en Spotify</h4>
+              <p className="text-xs font-bold text-gray-500">Episodios completos y entrevistas en audio</p>
+            </div>
+          </div>
+          <a 
+            href="https://open.spotify.com/show/6vHFrfEwlCA1kIbUUdk9FI" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[10px] font-black uppercase tracking-wider px-4 py-2 border-2 border-black bg-bamba-yellow text-black hover:bg-black hover:text-white transition-colors"
+          >
+            Abrir en Spotify <i className="fas fa-arrow-up-right-from-square ml-1"></i>
+          </a>
+        </div>
+        <div className="w-full overflow-hidden rounded-xl">
+          <iframe 
+            style={{ borderRadius: '12px' }} 
+            src="https://open.spotify.com/embed/show/6vHFrfEwlCA1kIbUUdk9FI?utm_source=generator&theme=0" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy"
+            title="Bamba Streaming en Spotify"
+          ></iframe>
+        </div>
+      </div>
+
       {/* YouTube CTA */}
       <div className="text-center">
         <a
